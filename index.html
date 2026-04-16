@@ -21,7 +21,7 @@
   --navy-mid: oklch(30% .06 302.321);
 
   /* Supporting colors */
-  --gold: oklch(75% .18 85); /* warm accent highlight */
+  --gold: oklch(59.899% 0.28491 321.761); /* warm accent highlight */
 
   --white: #ffffff;
   --off-white: oklch(97% .01 302.321);
@@ -103,6 +103,28 @@
       pointer-events: none;
     }
     .hero-inner { max-width: 760px; position: relative; z-index: 1; }
+    
+    .hero-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+}
+
     .hero-tag {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(37,99,235,0.15);
@@ -141,7 +163,11 @@
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
-      background: var(--accent);
+      background: linear-gradient(
+    135deg,
+    oklch(55.8% .288 302.321),
+    oklch(65% .25 320)
+  );
       color: var(--white);
       padding: 0.85rem 2rem;
       border-radius: 8px;
@@ -412,9 +438,25 @@
     }
     .footer-logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.5); }
     .footer-logo span { color: var(--gold); }
-    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+    footer p { font-size: 0.82rem; color: rgba(160, 0, 223, 0.3); }
 
     /* ── RESPONSIVE ── */
+
+    @media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+}
+
     @media (max-width: 900px) {
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
@@ -454,29 +496,57 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-tag">Consulting &amp; Business Solutions</div>
-      <h1>We Turn Complex<br>Challenges Into <em>Clear Results</em></h1>
-      <p>XGEN Global No Solutions delivers sharp strategy, operational expertise, and forward-thinking consulting that moves businesses from uncertainty to momentum.</p>
-      <div class="hero-btns">
-        <a href="#services" class="btn-primary">Explore Our Services</a>
-        <a href="#contact" class="btn-outline">Talk to Us</a>
+    <div class="hero-container">
+
+  <!-- LEFT SIDE (TEXT) -->
+  <div class="hero-inner">
+    <div class="hero-tag">Consulting & Business Solutions</div>
+
+    <h1>
+      We Turn Complex<br>
+      Challenges Into <em>Clear Results</em>
+    </h1>
+
+    <p>
+      XGEN Global No Solutions delivers sharp strategy, operational expertise,
+      and forward-thinking consulting that moves businesses from uncertainty
+      to momentum.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">
+        Explore Our Services
+      </a>
+
+      <a href="#contact" class="btn-outline">
+        Talk to Us
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Years in Business</div>
       </div>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num">10<span>+</span></div>
-          <div class="stat-label">Years in Business</div>
-        </div>
-        <div>
-          <div class="stat-num">200<span>+</span></div>
-          <div class="stat-label">Clients Served</div>
-        </div>
-        <div>
-          <div class="stat-num">98<span>%</span></div>
-          <div class="stat-label">Client Retention</div>
-        </div>
+
+      <div>
+        <div class="stat-num">200<span>+</span></div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+
+      <div>
+        <div class="stat-num">98<span>%</span></div>
+        <div class="stat-label">Client Retention</div>
       </div>
     </div>
+  </div>
+
+  <!-- RIGHT SIDE (IMAGE) -->
+  <div class="hero-image">
+    <img src="catcat.jpg" alt="Business Consulting">
+  </div>
+
+</div>
   </section>
 
   <!-- ABOUT -->
@@ -681,7 +751,7 @@
 
     document.querySelector('.btn-submit').addEventListener('click', function() {
       this.textContent = 'Message Sent!';
-      this.style.background = '#16a34a';
+      this.style.background = 'oklch(60% .20 145)';
       setTimeout(() => {
         this.textContent = 'Send Message';
         this.style.background = '';
