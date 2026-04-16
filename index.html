@@ -9,18 +9,28 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #0b1437;
-      --navy-mid: #162050;
-      --accent: #2563eb;
-      --accent-light: #3b82f6;
-      --accent-soft: #dbeafe;
-      --gold: #f59e0b;
-      --white: #ffffff;
-      --off-white: #f8faff;
-      --text-muted: #64748b;
-      --text-body: #1e293b;
-      --border: #e2e8f0;
-    }
+  /* PRIMARY THEME COLOR (OKLCH Purple) */
+  --accent: oklch(55.8% .288 302.321);
+
+  /* Derived shades */
+  --accent-light: oklch(65% .25 302.321);
+  --accent-soft: oklch(92% .05 302.321);
+
+  /* Dark base tones */
+  --navy: oklch(22% .05 302.321);
+  --navy-mid: oklch(30% .06 302.321);
+
+  /* Supporting colors */
+  --gold: oklch(75% .18 85); /* warm accent highlight */
+
+  --white: #ffffff;
+  --off-white: oklch(97% .01 302.321);
+
+  --text-body: oklch(28% .02 302.321);
+  --text-muted: oklch(55% .02 302.321);
+
+  --border: oklch(88% .01 302.321);
+}
 
     html { scroll-behavior: smooth; }
 
